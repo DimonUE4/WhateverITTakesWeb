@@ -1,0 +1,1522 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #fff;
+    overflow-y: scroll;
+}
+
+/* Header всегда сверху */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00000000;
+    padding: 15px 50px;
+    z-index: 1000; /* Чтобы header был поверх других элементов */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+/* Навигационные кнопки в верхнем меню */
+.nav-buttons {
+    display: flex;
+    justify-content: center; /* Выравнивание кнопок по центру */
+    width: 100%;
+}
+
+.nav-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #ffffff00;
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 22px;
+    cursor: pointer;
+    position: relative; /* Для использования псевдоэлемента */
+    transition: all 0.3s ease;
+}
+
+/* Эффект подсветки как прожектор */
+.nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0);
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    opacity: 0; /* Подсветка скрыта по умолчанию */
+    box-shadow: 15px 15px 20px rgba(255, 255, 255, 0.719); /* Эффект светящегося прожектора */
+}
+
+/* Эффект на кнопку при наведении */
+.nav-btn:hover {
+   
+    color: #bebebe;
+    border-radius: 30px;
+    box-shadow: 15px 10px 50px rgba(255, 255, 255, 0); /* Тень на кнопке */
+    font-size: 20px;
+}
+
+/* Появление подсветки как прожектора при наведении */
+.nav-btn:hover::before {
+    opacity: 1; /* Подсветка появляется */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0); /* Увеличение тени при наведении */
+}
+
+/* Полоса под текстом */
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+/* Эффект на кнопку при наведении */
+.nav-btn:hover::after {
+    width: 100%; /* Полоса появляется при наведении */
+}
+
+/* Основной контейнер */
+.main1 {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 20px 20px; /* Отступ сверху для того, чтобы избежать перекрытия header */
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+
+}
+
+/* Заголовок */
+.maintext {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+#welcome-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 1s ease-out, opacity 1.5s ease-out;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+}
+
+.line {
+    position: absolute;
+            top: 50%; /* Центрируется по вертикали */
+            left: 0; /* Полоса будет заполняться слева направо */
+            transform: translateY(-50%); /* Центрируется по вертикали относительно текста */
+            height: 5px; /* Узкая полоса, уменьшенная в 2 раза */
+            background-color: #ff0000; /* Цвет полосы */
+            width: 0; /* Стартовая ширина полосы */
+            z-index: 1; /* Полоса позади текста */
+            transition: width 0.2s ease; /* Плавная анимация изменения ширины */
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+}
+
+#enter-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #111111;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px rgb(255, 255, 255) solid;
+}
+
+#enter-btn:hover {
+    background-color: #ffffff;
+    color: black;
+}
+.main2{
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+
+#main-content {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Анимации */
+.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.container {
+    height: 300vh; /* Высота контейнера больше экрана */
+    background: linear-gradient(to bottom, #000000 0%, #000000 100%);
+    transition: transform 1s ease-out;
+}
+
+.hidden {
+    transform: translateY(-100vh); /* Скрыть контейнер вверх */
+}
+
+.scroll-effect {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: white;
+}
+
+.text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    margin-left: 21px;
+    color: rgb(161, 161, 161);
+}
+
+.getgame {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+/* Эффект на кнопку при наведении */
+.getgame:hover {
+    background-color: #fff;
+    color: #111;
+    border-radius: 30px;
+    border: 2px solid #fff;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Для правой части экрана */
+.right .object {
+    width: 300px;
+    height: 300px;
+    background-color: #55555500;
+    border-radius: 15px;
+}
+
+/* Прочие стили для разных экранов */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .left {
+        text-align: center;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-btn {
+        margin: 10px 0;
+    }
+}
+/* Основной контейнер */
+.container {
+    width: 1920px;
+    height: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Верхний и нижний ряды текста */
+.top-row, .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Центральный текст */
+.center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    opacity: 0.95;
+}
+
+/* Стили для текста */
+.slogan1 {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1; /* Текст над полосой */
+    transition: color 0.5s ease, opacity 0.5s ease; /* Плавный переход цвета текста */
+    cursor: pointer;
+    width: 600px; /* Фиксированная ширина */
+    text-align: center; /* Выравнивание текста по центру */
+    white-space: nowrap; /* Запрет на перенос текста */
+    margin-left: -20px;
+}
+
+.slogan1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%; /* Полоса заполняет весь блок */
+    background-color: rgb(255, 255, 255); /* Цвет фона */
+    z-index: -1; /* Полоса под текстом */
+    transition: width 0.5s ease; /* Плавное заполнение фона */
+}
+
+.slogan1:hover::before {
+    width: 100%; /* Фон будет заполняться при наведении */
+}
+
+.slogan1:hover {
+    color: #000000; /* Цвет текста при наведении */
+}
+
+
+
+
+.slogan2 {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1; /* Текст над полосой */
+    transition: color 0.5s ease, opacity 0.5s ease; /* Плавный переход цвета текста */
+    cursor: pointer;
+    width: 600px; /* Фиксированная ширина */
+    text-align: center; /* Выравнивание текста по центру */
+    white-space: nowrap; /* Запрет на перенос текста */
+    margin-right: 120px;
+}
+
+.slogan2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%; /* Полоса заполняет весь блок */
+    background-color: rgb(255, 255, 255); /* Цвет фона */
+    z-index: -1; /* Полоса под текстом */
+    transition: width 0.5s ease; /* Плавное заполнение фона */
+}
+
+.slogan2:hover::before {
+    width: 100%; /* Фон будет заполняться при наведении */
+}
+
+.slogan2:hover {
+    color: #000000; /* Цвет текста при наведении */
+}
+
+
+
+
+.slogan3 {
+    color: white;
+    margin-top: 20px;
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1; /* Текст над полосой */
+    transition: color 0.5s ease, opacity 0.5s ease; /* Плавный переход цвета текста */
+    cursor: pointer;
+    width: 600px; /* Фиксированная ширина */
+    text-align: center; /* Выравнивание текста по центру */
+    white-space: nowrap; /* Запрет на перенос текста */
+    margin-left: -30px;
+}
+
+.slogan3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%; /* Полоса заполняет весь блок */
+    background-color: rgb(255, 255, 255); /* Цвет фона */
+    z-index: -1; /* Полоса под текстом */
+    transition: width 0.5s ease; /* Плавное заполнение фона */
+}
+
+.slogan3:hover::before {
+    width: 100%; /* Фон будет заполняться при наведении */
+}
+
+.slogan3:hover {
+    color: #000000; /* Цвет текста при наведении */
+}
+
+
+
+/* Адаптивные стили для малых экранов */
+@media (max-width: 768px) {
+    .top-row, .bottom-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slogan1 {
+        width: 100%;
+    }
+}
+
+.main3{
+    width: 1920px;
+    height: 980px;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+
+/* Контейнер для лица */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-y: scroll;
+}
+
+/* Контейнер для лица */
+.face-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #ffffff00;
+}
+
+
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    width: 300vw; /* 3 sections * 100vw */
+    transition: transform 0.5s ease-in-out;
+}
+
+.section {
+    width: 100vw; /* Each section takes full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+}
+
+
+
+/* Общие стили для частей лица */
+.face-part {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: width 0.7s ease;
+    position: relative;
+}
+
+/* Левая часть лица */
+.left-part {
+    background-image: url('LeftSide.png');
+}
+
+/* Правая часть лица */
+.right-part {
+    background-image: url('RightSide.png');
+}
+
+/* Плавное затемнение фона */
+.face-part::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease-in-out;
+    z-index: 1;
+}
+
+/* Затемнение при наведении */
+.left-part:hover::before, .right-part:hover::before {
+    background: rgba(0, 0, 0, 0.693); /* Затемнение */
+}
+
+/* Контент для левой и правой части */
+.content-left, .content-right {
+    position: absolute;
+    bottom: 400px;
+    left: 70px;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 80%;
+    text-align: left;
+}
+
+/* Плавное появление контента при наведении */
+.left-part:hover .content-left, .right-part:hover .content-right {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Слайды картинок */
+.slides {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.slides img {
+    width: 100px;
+    height: 60px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Стили для наведения на части */
+.left-part:hover, .right-part:hover {
+    flex: 0.5;
+}
+
+.left-part:hover .content-left, .right-part:hover .content-right {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Плавное изменение размера */
+.left-part, .right-part {
+    transition: flex 0.7s ease-in-out;
+}
+
+/* Анимация увеличения части */
+.left-part:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.right-part:hover {
+    transform: scale(1.1);
+}
+.main4{
+    width: 1920px;
+    height: 1080px;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+
+/* Основной стиль секции с информацией */
+.game-info {
+    padding: 60px 20px;
+    background: #000000;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #f2f2f2;
+    
+}
+
+.world-map {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background: url('9c339f034c2c732a1252b8c4a4300ead.png') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(35, 35, 35, 0.657); /* Blue shadow to simulate tablet light */
+    cursor: none;
+    margin-top: 200px;
+}
+
+.map-point {
+    position: absolute;
+    background-color: rgb(249, 249, 249);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.map-point:hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Блок с подробной информацией */
+.map-content-popup {
+    position: absolute;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 10;
+    transform: scale(0.8);
+}
+
+/* Плавно появляется и увеличивается */
+.map-point:hover + .map-content-popup {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Установка точной позиции блока рядом с точкой */
+.map-point[data-location="history"]:hover + .map-content-popup {
+    top: 20%; /* Ранее задано, настроим под точку */
+    left: 35%; /* Более точное расположение */
+    transform-origin: top left;
+}
+
+.map-point[data-location="factions"]:hover + .map-content-popup {
+    top: 62%;
+    left: 55%; /* Для точности */
+    transform-origin: top left;
+}
+
+.map-point[data-location="locations"]:hover + .map-content-popup {
+    top: 65%;
+    left: 57%;
+    transform-origin: top left;
+}
+
+.map-point[data-location="ruins"]:hover + .map-content-popup {
+    top: 40%;
+    left: 15%;
+    transform-origin: top left;
+}
+
+.map-point[data-location="bunkers"]:hover + .map-content-popup {
+    top: 22%;
+    left: 76%;
+    transform-origin: top left;
+}
+
+.map-content-popup img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.map-content-popup p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+
+
+.pointer-container {
+    position: absolute;
+    visibility: hidden; /* Initially hidden */
+    pointer-events: none; /* Prevent pointer events */
+    z-index: 9999;
+}
+
+/* The central pointer (circle) */
+.pointer {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #000000; /* Red color for pointer */
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    z-index: 999;
+    transform: translate(-50%, -50%); /* Center the pointer */
+}
+
+/* Lines extending from the pointer */
+.line {
+    position: absolute;
+    background-color: #ffffff;
+    width: 2px;
+    height: 50px; /* Adjust the length of the lines */
+    z-index: 998;
+}
+
+/* Position lines relative to the pointer */
+.line.top {
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line.right {
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+}
+
+.line.bottom {
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line.left {
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+}
+
+/* Display pointer and lines when mouse is hovering over the map */
+.world-map:hover .pointer-container {
+    visibility: visible;
+    cursor: none;
+}
+
+
+
+.lore {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три плитки в строку */
+    gap: 0; /* Убираем зазоры между элементами */
+    margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.lore-item {
+    position: relative;
+    background: #000000;
+    padding: 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    overflow: hidden; /* Чтобы контент не выходил за пределы */
+    box-sizing: border-box; /* Учитываем паддинги при расчете ширины */
+    height: 150px; /* Начальная высота блока */
+    transition: height 0.5s ease-in-out; /* Плавное изменение высоты */
+    border: 1px white solid;
+}
+
+.lore-item:hover {
+    background: #444;
+    height: 350px; /* Высота при наведении */
+}
+
+.lore-title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.lore-description {
+    color: #bbb;
+    font-size: 16px;
+}
+
+.lore-expanded-content {
+    position: absolute;
+    bottom: -20px; /* Начинаем снаружи */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px); /* Сначала скрыто */
+    height: 0;
+    overflow: hidden; /* Скрыть контент, пока не увеличим блок */
+    transition: all 0.5s ease; /* Плавное расширение */
+}
+
+.lore-item:hover .lore-expanded-content {
+    opacity: 1;
+    transform: translateY(0); /* Плавное движение вниз */
+    height: 80%; /* Задаем 80% высоты блока */
+}
+
+.lore-expanded-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.lore-expanded-content p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+
+/* Overall Container */
+.character-section {
+    display: flex;
+    height: 100%; /* Full height of the page */
+    width: 100%;
+    background-color: #000000;
+    position: relative;
+}
+
+/* Static Left Section */
+.static-image {
+    width: 40%; /* Static image takes 40% of the screen */
+    background-color: #000000; /* Dark background for contrast */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky; /* Keeps the image static while scrolling */
+    top: 0; /* Stick to the top */
+    height: 100vh; /* Ensure it sticks for full viewport height */
+}
+
+.static-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+/* Dynamic Right Section */
+.dynamic-content {
+    width: 60%; /* Dynamic content takes 60% of the screen */
+    padding: 40px;
+    background-color: rgb(0, 0, 0);
+    scroll-behavior: smooth;
+}
+
+/* Individual Content Blocks */
+.character-block {
+    margin-bottom: 100px; /* Increased margin between content blocks for better spacing */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.character-block h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.character-block p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #dbdbdb;
+    max-width: 90%;
+}
+
+.character-block img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('your-image.jpg'); /* Default background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Styling for the video */
+.charvideo {
+    width: 100%;
+    height: auto;
+    opacity: 0; /* Initially hide the video */
+    transition: opacity 0.5s ease; /* Smooth transition for video visibility */
+}
+
+/* Initially hidden text */
+.description-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    z-index: 2;
+    width: 80%;
+}
+
+/* Dark overlay effect using the ::before pseudo-element */
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 1;
+    transition: background-color 0.5s ease;
+}
+
+/* Hover effect: display video, darken the video, and show the text */
+.video-container:hover .charvideo {
+    opacity: 1; /* Show the video */
+    animation: play-video 0.5s forwards; /* Start video playback */
+}
+
+.video-container:hover .description-text {
+    opacity: 1; /* Show the text */
+}
+
+.video-container:hover::before {
+    background-image: url(videoplayback.mp4);
+}
+
+/* Animation to play the video when hovered */
+@keyframes play-video {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Play the video only on hover */
+.video-container:hover .charvideo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hide the video on initial load */
+.charvideo {
+    visibility: hidden;
+    transition: visibility 0.5s ease;
+}
+
+
+/* Optional: Scrollbar Customization for the Dynamic Section */
+.dynamic-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dynamic-content::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.dynamic-content::-webkit-scrollbar-thumb:hover {
+    background-color: #000000;
+}
+
+
+/* Full Page Scrolling */
+body {
+    overflow-y: scroll; /* Ensure page scrolls */
+}
+
+.main5{
+    width: 1920px;
+    height: 3200px;
+    margin-top: 600px;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+
+
+
+
+.main6{
+    width: 1920px;
+    height: 1080px;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+
+.cardsection {
+    width: 100%;
+    height: 980px;
+    background-color: #11111100;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -5px;
+}
+
+.card {
+    width: 20%;
+    height: 60%;
+    background-color: #000000;
+    border: 2px white solid;
+    margin-top: 5%;
+    margin-left: 3.5%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start; /* Выравниваем по верхнему краю */
+    align-items: flex-start; /* Выравниваем по верхнему краю */
+    overflow: hidden;
+    transition: transform 0.5s ease, visibility 0.5s ease, width 0.5s ease, margin-left 0.5s ease, height 0.5s ease;
+}
+
+.card .content {
+    position: absolute;
+    top: 0; /* Поднимаем контент к верху */
+    left: 60%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease;
+    
+    text-align: left;
+}
+
+
+
+.card .expansion-div {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 0;
+    background-color: #e7e7e7;
+    transition: width 0.5s ease;
+    z-index: 10;
+}
+
+.card.expanded .content {
+    opacity: 1;
+    transform: translateX(-70%); /* Сдвигаем текст в левую часть */
+    color: #ffffff;
+    z-index: 9;
+}
+.card.expanded .infocard {
+    
+    color: #000000;
+    
+}
+
+
+
+.card.expanded .expansion-div {
+    width: 60%;
+    background-color: #e7e7e7;
+    z-index: 10;
+}
+
+.card.expanded {
+    width: 100%;
+    height: 90%;
+    margin-left: 0;
+    z-index: 8;
+    background: linear-gradient(to right, #e7e7e7 30%, transparent 30%);
+    
+    
+}
+.card-text{
+    margin-left: 520px;
+}
+
+.card.expanded ~ .card {
+    visibility: hidden;
+}
+
+.developer-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    position: relative;
+    top: 20px; /* Сдвигаем карточки разработчиков вниз */
+}
+
+.developer-card {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    width: 650px;
+    margin-left: 520px;
+}
+
+.developer-card:hover {
+    transform: scale(1.05);
+    
+}
+
+.developer-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.developer-name {
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.developer-description {
+    color: #262626;
+    font-size: 1rem;
+    
+}
+
+.history-section {
+    width: 100%;
+    padding: 50px 0;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 800px;
+    overflow: hidden; /* Скрываем скролл */
+}
+
+.timeline-item {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px;
+    width: 300px;
+    border: 2px solid #e7e7e7;
+    border-radius: 0px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    color: white;
+    opacity: 1;
+}
+
+.timeline-item:hover {
+    background-color: #e7e7e7;
+    color: #111;
+    transform: scale(1.05);
+    border: 0px;
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #fff;
+}
+
+.timeline-item .timeline-content {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.timeline-item:hover .timeline-content {
+    opacity: 1;
+}
+
+.timeline-item .timeline-content p {
+    margin-top: 10px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #e7e7e7;
+}
+
+.infocard {
+    color: white;
+    font-size: 36px;
+    margin-top: 250px;
+    margin-left: 70px;
+}
+
+.info-block {
+    position: absolute;
+    left: 320px; /* Adjust as needed */
+    top: 20px;   /* Fixed position aligned with the first timeline item */
+    width: 300px;
+    height: 600px; /* 4 times the height of timeline item */
+    background-color: #e7e7e7;
+    color: #111;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100px); /* Start 100px above its normal position */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s; /* Slight delay on visibility */
+    z-index: 10;
+}
+
+.info-block h4 {
+    margin-bottom: 10px;
+}
+
+.timeline-item:hover ~ .info-block {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide down to its normal position */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth transition */
+}
+
+/* Скрываем полосы прокрутки */
+.timeline::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline {
+    -ms-overflow-style: none;  /* Для Internet Explorer и Edge */
+    scrollbar-width: none;     /* Для Firefox */
+}
+
+
+.grid {
+    width: 799px;
+    height: 960px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 820px;
+    margin-top: -100px;
+}
+
+.lefts, .rigts {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tile {
+    width: 100%;
+    height: 53%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(36, 36, 36);
+    position: relative;
+    transition: 0.5s;
+}
+
+.tile:hover {
+    background-color: white;
+    color: black;
+}
+
+.tile::after {
+    content: attr(data-text);
+}
+
+.tile:hover::after {
+    content: attr(data-hover-text);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.smooth-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s ease; /* Сократим задержку курсора */
+}
+
+.aboutus{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 6%;
+    margin-left: 0%;
+}
+
+.main7{
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    flex-direction: row;
+    transition: transform 1s ease; /* Увеличиваем время анимации до 1 секунды */
+}
+.timer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 70px;
+}
+.timer-cube {
+    width: 150px;
+    height: 200px;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    font-weight: bolder;
+    transition: 0.6s;
+}
+
+.timer-cube:hover {
+    background-color: #ffffff;
+    border: 2px white solid;
+    color: #000000;
+
+}
+
+.character{
+    background-color: #000000;
+    width: 40%;
+    height: 100%;
+
+}
+
+.buySide{
+    width: 60%;
+    height: 100%;
+
+    background-color: #000000;
+
+}
+
+.namegame{
+    color: white;
+    font-size: 46px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    font-weight: bolder;
+    margin-top: 70px;
+    margin-left: 250px;
+}
+
+.desc{
+    color: white;
+    font-size: 21px;
+    margin-top: 90px;
+    margin-left: 30px;
+}
+
+.buybut{
+    border: 2px white solid;
+    width: 150px;
+    height: 60px;
+    background-color: #000000;
+    color: white;
+    font-size: 21px;
+    text-align: center;
+    transition: 0.6s;
+    margin-top: 100px;
+    margin-left: 400px;
+}
+
+.buybut::before{
+    background-color: rgb(0, 0, 0);
+    color:  rgb(255, 255, 255);
+    border-radius: 0px;
+
+}
+
+.buybut:hover{
+    background-color: white;
+    color:  black;
+    border-radius: 15px;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 80px;
+    background-color: #000;
+    border-top: 1px solid #333;
+}
+
+.footer .footer-block {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-left: 1px solid #444;
+}
+
+.footer .footer-block:first-child {
+    border-left: none;
+}
+
+.footer h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin: 10px 0;
+}
+
+.footer ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #fff;
+}
+
+.footer .game-title {
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.footer .social-icons ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .social-icons ul li a {
+    font-size: 1.5em;
+}
+.readaboutus {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 45%;
+    
+    align-content: center;
+    align-items: center;
+    width: 15%;
+   
+}
+
+/* Эффект при наведении на кнопку */
+.readaboutus:hover {
+    background-color: white;
+    color: black;
+}

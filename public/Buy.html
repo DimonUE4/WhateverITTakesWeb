@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Покупка игры</title>
+    <link rel="stylesheet" href="stylebuy.css">
+</head>
+<body>
+    <!-- Видео фон -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="videoplayback.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Содержимое страницы -->
+    <div class="header">
+        <div class="nav-buttons">
+            <button class="nav-btn">Home</button>
+            <button class="nav-btn" id="Register">Whatever It Takes</button>
+            <button class="nav-btn">About</button>
+            
+        </div>
+    </div>
+
+    <div class="buy-content">
+        <h2 class="section-title">THREE WAYS - THREE DIFFERENT WORLD</h2>
+        <div class="edition-cards">
+            <!-- Карточка стандартного издания -->
+            <div class="edition-card">
+                <img src="photo_2024-02-01_21-29-44.jpg" alt="Стандартное издание" class="edition-img">
+                <div class="edition-info">
+                    <h3 class="edition-title">YOU ARE SOLDIER</h3>
+                    <p class="edition-description" style="margin-top: 10px;">DYNAMIC FREE FIRES AND DISGUSTING STORY</p>
+                    <p class="edition-price"  style="margin-top: 10px;">Цена: 799 руб.</p>
+                    <button class="buy-btn" onclick="redirectToPayment('Стандартное издание', 'photo_2024-02-01_21-29-44.jpg', '799')">Купить</button>
+                </div>
+            </div>
+
+            <!-- Карточка расширенного издания -->
+            <div class="edition-card">
+                <img src="photo_2024-02-01_21-29-44.jpg" alt="Расширенное издание" class="edition-img">
+                <div class="edition-info">
+                    <h3 class="edition-title">YOU ARE MONSTER</h3>
+                    <p class="edition-description" style="margin-top: 10px;">TRUE STORY AND ALL POSIBLY WAYS TO END</p>
+                    <p class="edition-price"  style="margin-top: 10px;">Цена: 1499 руб.</p>
+                    <button class="buy-btn" onclick="redirectToPayment('Расширенное издание', 'photo_2024-02-01_21-29-44.jpg', '1499')">Купить</button>
+                </div>
+            </div>
+
+            <!-- Карточка коллекционного издания -->
+            <div class="edition-card">
+                <img src="photo_2024-02-01_21-29-44.jpg" alt="Коллекционное издание" class="edition-img">
+                <div class="edition-info">
+                    <h3 class="edition-title">YOU...</h3>
+                    <p class="edition-description" style="margin-top: 10px;">ITS NOT A GAME, DUDE. ITS YOUR LIFE. MAKE A TRUE CHOSE</p>
+                    <p class="edition-price"  style="margin-top: 10px;">Цена: 2499 руб.</p>
+                    <button class="buy-btn" onclick="redirectToPayment('Коллекционное издание', 'photo_2024-02-01_21-29-44.jpg', '2499')">Купить</button>
+                </div>
+            </div>
+        </div>
+        <button class="none" onclick="window.location.href='index.html';">Back</button>
+    </div>
+    <footer class="footer">
+        <!-- Первый блок: Название игры -->
+        <div class="footer-block">
+            <h2 class="game-title">WHATEVER IT TAKES</h2>
+        </div>
+
+        <!-- Второй блок: Социальные сети -->
+        <div class="footer-block social-icons">
+            <h2>Contacts</h2>
+            <ul>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+                <li><a href="https://telegram.org" target="_blank">Telegram</a></li>
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://tiktok.com" target="_blank">TikTok</a></li>
+            </ul>
+        </div>
+
+        <!-- Третий блок: Работа с нами -->
+        <div class="footer-block">
+            <h2>Work With Us</h2>
+            <ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Partnerships</a></li>
+                <li><a href="#">Collaborations</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    
+
+   <script>
+    function redirectToPayment(title, image, price) {
+            // Переход на страницу оплаты с параметрами выбранного издания
+            window.location.href = `/payment.html?title=${title}&image=${image}&price=${price}`;
+        }
+        window.onload = function() {
+    const title = getQueryParam('title');
+    const image = getQueryParam('image');
+    const price = getQueryParam('price');
+
+    console.log('Title:', title);
+    console.log('Image path:', image);
+    console.log('Price:', price);
+
+    document.getElementById('gameTitle').textContent = title;
+    document.getElementById('gameImage').src = image;
+    document.getElementById('gamePrice').textContent = `Цена: ${price} руб.`;
+};
+   </script>
+    
+</body>
+
+</html>
