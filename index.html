@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сюрприз для тебя!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="start-screen">
+      <h1>У тебя есть секретное послание 🎁</h1>
+      <button id="open-btn">Открыть</button>
+    </div>
+
+    <div id="gift-box" class="hidden">
+      <div class="box">
+        <div class="lid">
+          <div class="bow">
+            
+          </div>
+        </div>
+        <div class="base">
+          <div class="ribbon-vertical"></div>
+          <div class="ribbon-horizontal"></div>
+        </div>
+        <p class="instruction">Нажми на коробку, чтобы открыть 🎀</p>
+      </div>
+    </div>
+
+    <div id="card" class="hidden">
+      <div class="card-content">
+        <h2>✨ Привет! ✨</h2>
+        <p>Ты невероятно красивая сегодня 😊 Этот сюрприз создан специально для тебя ❤️</p>
+        <p>Пусть каждый день дарит тебе улыбки и радость!</p>
+        <button id="more-btn">Хочу ещё сюрприз!</button>
+      </div>
+    </div>
+
+    <canvas id="confetti" class="hidden"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
